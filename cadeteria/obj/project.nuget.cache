@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "FnAztlX4rfv0O8lox5txBLgnV/5YmFtF2NlhreE+tdfCKcdTLiGO8O6VIvxrx/7wUm10l4eFnev1XtIOIr+Kdw==",
+  "success": true,
+  "projectFilePath": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Leo\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Leo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\Leo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Leo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Leo\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Leo\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Leo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
