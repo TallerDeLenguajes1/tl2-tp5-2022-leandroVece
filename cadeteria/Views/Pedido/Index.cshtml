@@ -23,7 +23,7 @@
             <td>@item.Estado</td>
             <td>@item.Cliente.Nombre</td>
             <td class="primary mb-3"> @Html.ActionLink("Delete", "delete", new { Numero=item.Numero,Id = item.Cliente.Id }) </td>
-            <td class="primary mb-3"> @Html.ActionLink("Update", "actualizar", new { Numero=item.Numero}) </td>
+            <td class="primary mb-3"> @Html.ActionLink("Update", "Edit", new { Numero=item.Numero}) </td>
         </tr>
     }
 

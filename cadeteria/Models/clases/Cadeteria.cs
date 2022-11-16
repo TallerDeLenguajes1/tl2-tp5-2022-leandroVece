@@ -1,6 +1,6 @@
 namespace cadeteria.Models;
 
-public class CadeteriaModel
+public class Cadeteria
 {
     //relacion de compossicion con la clase cadete
         private string nombre;
@@ -13,7 +13,7 @@ public class CadeteriaModel
 
         List<Cadete> listaCadete = new List<Cadete>(); 
 
-        public CadeteriaModel(string name, string phone){
+        public Cadeteria(string name, string phone){
             this.Nombre = name;
             this.Telefono = phone; 
         }

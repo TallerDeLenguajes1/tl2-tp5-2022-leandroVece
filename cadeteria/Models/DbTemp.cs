@@ -4,15 +4,16 @@ namespace cadeteria.Models;
 public class DbModel
     {
         private List<Pedido> ListaPedido;
-        private CadeteriaModel Cadeteria;
+        private Cadeteria Cadeteria;
 
         public List<Pedido> ListaPedido1 { get => ListaPedido; set => ListaPedido = value; }
-        public CadeteriaModel Cadeteria1 { get => Cadeteria; set => Cadeteria = value; }
+        public Cadeteria Cadeteria1 { get => Cadeteria; set => Cadeteria = value; }
 
          public DbModel(){
                 ListaPedido = new List<Pedido>();
-                Cadeteria = new CadeteriaModel("Eternos","6542112");
+                Cadeteria = new Cadeteria("Eternos","6542112");
         }
+        /*
 
         //////// LOGICA PARA GUARDAR \\\\\\\\\\
         public void savePedido(Pedido obj,int idCliente){
@@ -314,6 +315,7 @@ public class DbModel
             }
         }
 
+    */
     }
 
             

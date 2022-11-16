@@ -15,16 +15,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\taller2\2022\tl2-tp5-2022-leandroVece\cadeteria
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Actualizar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEFjdHVhbGl6YXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Alta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEFsdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/AsignarPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEFzaWduYXJQZWRpZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Index.cshtml]
@@ -39,12 +39,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Actualizar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEFjdHVhbGl6YXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Alta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEFsdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Index.cshtml]

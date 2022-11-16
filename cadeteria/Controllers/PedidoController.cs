@@ -10,8 +10,13 @@ public class PedidoController : Controller
 {
     private readonly ILogger<PedidoController> _logger;
     IMapper _mapper;
-    DbModel temp = new DbModel();
+    PedidoViewModel modelPedido = new PedidoViewModel();
+
+    ClienteViewModel modelCliente = new ClienteViewModel();
     List<PedidoViewModel> db = new List<PedidoViewModel>();
+
+
+    VuiwModels.Mapper PAndC = new VuiwModels.Mapper();
 
     public PedidoController(ILogger<PedidoController> logger, IMapper mapper)
     {
@@ -23,55 +28,51 @@ public class PedidoController : Controller
     public IActionResult Index()
     {
 
-        var lista = temp.getDatepedidos(temp.getDateCliente());
+        var lista = PAndC.GetPedidoCliente();
         db = _mapper.Map<List<PedidoViewModel>>(lista);
 
         return View(db);
-    }
-
-    public RedirectToActionResult delete(string Numero,int Id)
-    {
-        //con el valor que traigo de la vista separo de la lista el elemiento a eliminar y lo borro
-        //el metodo de borrar es truncando el viejo archivo csv
-
-        List<Cliente> clientes = temp.getDateCliente().FindAll(x => x.Id != Id);
-        List<Pedido> pedidos = temp.getDatepedidos(clientes).FindAll(x=> x.Numero != Numero);
-
-        temp.deletePedido(pedidos);
-        temp.deleteCliente(clientes);
-
-        return RedirectToAction("Index");
-    }
-
-    public IActionResult actualizar(string Numero)
-    {
-        //con el valor que traigo de la vista separo de la lista el elemiento a eliminar y lo borro
-        //el metodo de borrar es truncando el viejo archivo csv
-
-        var lista = temp.getDatepedidos(temp.getDateCliente());
-        db = _mapper.Map<List<PedidoViewModel>>(lista);
-        PedidoViewModel pedido = db.Find(x=> x.Numero == Numero);
-        return View(pedido);
     }
 
     [HttpPost]
-    public IActionResult Index(string obj, string nombre,string direccion, string telefono,string referencia)
+    public IActionResult Index(string Obs, string nombre,string direccion, string telefono,string referencia)
     {
-        List<Cliente> listaC = temp.getDateCliente();
-        int idCliente = listaC[listaC.Count -1].Id +1;
+        
+        Cliente nuevoC = new Cliente(0,nombre,direccion,telefono,referencia);
+        Pedido nuevoP = new Pedido("0",Obs,"pendiente");
+        Console.WriteLine(Obs);
+        Console.WriteLine(nombre);
+        Console.WriteLine(direccion);
+        Console.WriteLine(telefono);
+        //modelPedido.Create(nuevoP);
+        //modelCliente.Create(nuevoC);
 
-        List<Pedido> listaP = temp.getDatepedidos(temp.getDateCliente());
-        int idpedido = Convert.ToInt32(listaP[listaP.Count - 1].Numero) + 1;
-
-        Pedido newPedido = new Pedido(idpedido.ToString(),obj,"pendiente");
-        Cliente newCliente = new Cliente(idCliente,nombre,direccion,telefono,referencia);
-
-        temp.savePedido(newPedido,idCliente);
-        temp.saveCliente(newCliente);
-
-        var lista = temp.getDatepedidos(temp.getDateCliente());
+        var lista = PAndC.GetPedidoCliente();
         db = _mapper.Map<List<PedidoViewModel>>(lista);
         return View(db);
+    }
+
+    public RedirectToActionResult delete(string Numero)
+    {
+        //borrar el pedido y la tabla clientePedido con el id del pedido
+        modelPedido.Delete(Numero);
+        PAndC.deleteClientePedido(Numero);
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult update(string numero, int id, string obj, string estado, string nombre,string direccion, string telefono,string referencia)
+    {
+        Cliente nuevoC = new Cliente(id,nombre,direccion,telefono,referencia);
+        Pedido nuevoP = new Pedido(numero,obj,estado);
+        modelPedido.Update(nuevoP);
+        modelCliente.Update(nuevoC);
+       return RedirectToAction("Index");
     }
 
     public IActionResult Alta()

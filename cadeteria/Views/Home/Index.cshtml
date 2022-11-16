@@ -1,83 +1,10 @@
-﻿@model DbModel;
+﻿
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome a @Model.Cadeteria1.Nombre</h1>
+    <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
 </div>
-    <h3>@ViewBag.numero coasdas</h3>
-
-    <h3>Nuevo pedido</h3>
-
-    <form  method="post" class=" w-75 mx-auto" asp-controller="Home">
-
-        <div class="row g-3 " >
-            <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Objeto" name="obj">
-            </div>
-
-            <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Nombre" name="nombre">
-            </div>
-
-            <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Direccion" name="direccion">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Telefono" name="telefono">
-            </div>
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Datos de Referencia" name="referencia">
-            </div>
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Enviar</button>
-            </div>          
-
-        </div>
-    </form>
-
-    <table class="table table-dark">
-
-    <thead >
-        <th>Numero Pedido</th>
-        <th>Pedido</th>
-        <th>Estado</th>
-        <th>cliente</th>
-        <th>Eliminar</th>
-    </thead>
-    @foreach (var item in Model.ListaPedido1)
-    {
-        <tr>
-            <td>@item.Numero</td>
-            <td>@item.Obs </td>
-            <td>@item.Estado</td>
-            <td>@item.Cliente.Nombre</td>
-            <td><button class="btn btn-primary mb-3"> @Html.ActionLink("Delete", "delete", new { Numero=item.Numero,Id = item.Cliente.Id }) </button></td>
-        </tr>
-    }
-
-    </table>
-        
-    <table class="table table-dark">
-
-        <thead>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>direccion</th>
-            <th>telefono</th>
-        </thead>
-
-        @foreach (var item in Model.Cadeteria1.ListaCadete)
-        { 
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Nombre</td>
-                <td>@item.Direccion</td>
-                <td>@item.Telefono</td>
-        </tr>
-        }
-
-    </table>
