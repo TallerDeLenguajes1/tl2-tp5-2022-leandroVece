@@ -1,0 +1,31 @@
+﻿@model List<VuiwModels.ClienteViewModel>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <h1>Tablas de clientes</h1>
+
+    <table class="table table-dark">
+
+    <thead >
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Pedido nuevo</th>
+        <th>Eliminar Pedido</th>
+        <th>Eliminar cliente</th>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.Direccion </td>
+            <td>@item.Telefono</td>
+            <td class="primary mb-3"> @Html.ActionLink("New", "Alta","Pedido", new { Id=item.Id }) </td>
+            <td class="primary mb-3"> @Html.ActionLink("Update", "Edit", new { Id=item.Id}) </td>
+            <td class="primary mb-3"> @Html.ActionLink("Delete", "Delete", new { Id=item.Id}) </td>
+        </tr>
+    }
+
+    </table>
+        

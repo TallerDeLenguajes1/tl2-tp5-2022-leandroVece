@@ -1,0 +1,43 @@
+﻿@model VuiwModels.ClienteViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <h3>Actualizar datos del cliente</h3>
+
+    <form  method="post" class=" w-50 mx-auto" asp-controller="Cliente" asp-action="update" >
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input hidden asp-for="Id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" value="Nombre" class="control-label"> Nombre</label>
+                <input asp-for="Nombre" class="form-control" > 
+                <span asp-validation-for="Nombre" class="text-danger">Carga invalida</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" value="Direccion" class="control-label"> Direccion</label>
+                <input asp-for="Direccion"  class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger">Carga invalida</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" value="Telefono" class="control-label"> Telefono</label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger">Carga invalida</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatosReferencia" value="DatosReferencia" class="control-label"> Datos referencia</label>
+                <input asp-for="DatosReferencia" class="form-control" />
+                <span asp-validation-for="DatosReferencia" class="text-danger">Carga invalida</span>
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+            </div>          
+    </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

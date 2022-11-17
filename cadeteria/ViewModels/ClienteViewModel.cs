@@ -22,22 +22,23 @@ namespace VuiwModels
         [Required] [StringLength(200)] 
         public string DatosReferencia { get => datosReferencia; set => datosReferencia = value; }
 
-        public void GetCliente(){
+        public List<Cliente> GetCliente(){
 
             var conection = Mapper.conexion();
             conection.Open();
 
             var queryString = "Select * From clientes";
             var comando = new SQLiteCommand(queryString,conection);
-            List<string> lista = new List<string>();
-            using (var rader = comando.ExecuteReader())
+            List<Cliente> lista = new List<Cliente>();
+            using (var reader = comando.ExecuteReader())
             {
-                while (rader.Read())
+                while (reader.Read())
                 {
-                    lista.Add(rader.GetString(0));
-                    Console.WriteLine(rader.GetString(0));
+                    Cliente aux = new Cliente(reader.GetInt32(0), reader.GetString(1),reader.GetString(2),Convert.ToString(reader.GetInt32(3)),reader.GetString(4));
+                    lista.Add(aux);
                 }
                 conection.Close();
+                return lista;
             }
         }  
 
@@ -46,12 +47,12 @@ namespace VuiwModels
             var conection = Mapper.conexion();
             conection.Open();
 
-            var queryString = "Select * From clientes Where id_cliente =" +id;
+            var queryString = "Select * From clientes Where id_cliente = " +id;
             var comando = new SQLiteCommand(queryString,conection);
-            using (var rader = comando.ExecuteReader())
+            using (var reader = comando.ExecuteReader())
             {
-                rader.Read();
-                nuevo = new Cliente(rader.GetInt32(0),rader.GetString(1),rader.GetString(2),rader.GetString(3),rader.GetString(4));
+                reader.Read();
+                nuevo = new Cliente(reader.GetInt32(0),reader.GetString(1),reader.GetString(2),reader.GetInt32(3).ToString(),reader.GetString(4));
                 conection.Close();
             }
 
@@ -62,7 +63,7 @@ namespace VuiwModels
 
             var connection = Mapper.conexion();
             connection.Open();
-            var queryString = string.Format("UPDATE clientes SET nombre = '{0}', direccion = '{1}', telefono = '{2}', referencia ='{3}' WHERE id_cadete = {4};", nuevo.Nombre,nuevo.Direccion,nuevo.Telefono,nuevo.DatosReferencia, nuevo.Id);
+            var queryString = string.Format("UPDATE clientes SET nombre = '{0}', direccion = '{1}', telefono = '{2}', referencia ='{3}' WHERE id_cliente = {4};", nuevo.Nombre,nuevo.Direccion,nuevo.Telefono,nuevo.DatosReferencia, nuevo.Id);
             var comando = new SQLiteCommand(queryString,connection);
             comando.ExecuteNonQuery();
             connection.Close();

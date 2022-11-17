@@ -40,7 +40,6 @@ namespace VuiwModels
             {
                 while (rader.Read())
                 {
-                    Console.WriteLine("LLEGO");
                     //lista.Add(rader.GetString(0));  //AQUI ESTA EL PROBLEMA
                     Console.WriteLine(rader.GetInt32(0));
                     
@@ -75,21 +74,22 @@ namespace VuiwModels
             var conection = conexion();
             conection.Open();
 
-            var queryString = "Select * from pedidos Inner Join clientePedido using (id_pedido) inner Join clientes using (id_cliente)";
+            var queryString = "Select * from pedidos Inner Join clientes Where clientes.id_cliente = pedidos.id_cliente ";
             var comando = new SQLiteCommand(queryString,conection);
             List<Pedido> lista = new List<Pedido>();
             using (var rader = comando.ExecuteReader())
             {
                 while (rader.Read())
                 {
+                    Pedido aux = new Pedido(rader.GetInt32(0).ToString(), rader.GetString(1), rader.GetString(2));
                     Cliente auxCliente = new Cliente(rader.GetInt32(4),rader.GetString(5),rader.GetString(6),rader.GetInt32(7).ToString(), rader.GetString(8));
-                    Pedido aux = new Pedido(rader.GetInt32(0).ToString(), rader.GetString(1), rader.GetString(2),auxCliente);
+                    aux.Cliente = auxCliente;
                     //Console.WriteLine(rader.GetInt32(4));
                     /*aux.Cliente.Id = rader.GetInt32(4);
                     aux.Cliente.Nombre = rader.GetString(5);
                     aux.Cliente.Direccion = rader.GetString(6);
-                    aux.Cliente.Telefono = rader.GetInt32(7).ToString();*/
-                    lista.Add(aux);                    
+                    aux.Cliente.Telefono = rader.GetInt32(7).ToString();*/  
+                    lista.Add(aux);                  
                 }
                 conection.Close();
                 return lista;
@@ -101,12 +101,11 @@ namespace VuiwModels
             var conection = conexion();
             conection.Open();
 
-            var queryString = "Select * from pedidos Inner Join clientePedido using (id_pedido) inner Join clientes using (id_cliente) Where pedidos.id_pedido =" + numero;
+            var queryString = "Select * from pedidos Where id_pedido =" + numero;
             var comando = new SQLiteCommand(queryString,conection);
             using (var rader = comando.ExecuteReader())
-            {
-                Cliente auxCliente = new Cliente(rader.GetInt32(4),rader.GetString(5),rader.GetString(6),rader.GetInt32(7).ToString(), rader.GetString(8));          
-                Pedido aux = new Pedido(rader.GetInt32(0).ToString(), rader.GetString(1), rader.GetString(2),auxCliente);
+            {         
+                Pedido aux = new Pedido(rader.GetInt32(0).ToString(), rader.GetString(1), rader.GetString(2));
                 conection.Close();
                 return aux;
             }
@@ -121,11 +120,10 @@ namespace VuiwModels
             connection.Close();
             
         }
-        public void Create(int id1,int id2){
-            Console.WriteLine("llego");
+        public void CreateClientePedido(int id1,int id2){
             var connection = Mapper.conexion();
             connection.Open();
-            var queryString = string.Format("Insert Into cadetes (id_cliente,id_pedido) Values ('{0}','{1}',);",id1,id2);
+            var queryString = string.Format("Insert Into clientePedido (id_cliente,id_pedido) Values ('{0}','{1}',);",id1,id2);
             var comando = new SQLiteCommand(queryString,connection);
             comando.ExecuteNonQuery();
             connection.Close();

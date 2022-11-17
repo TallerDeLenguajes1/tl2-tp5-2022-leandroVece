@@ -15,5 +15,9 @@ public class Cliente : Persona
             this.Telefono = phone;
             this.DatosReferencia = datosReferencia;
         }
+
+        public Cliente(){
+
+        }
     
 }

@@ -16318,6 +16318,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\Views\\Cliente\\Index.cshtml",
+      "TargetPath": "Views\\Cliente\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -16358,6 +16363,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\Views\\Cliente\\Edit.cshtml",
+      "TargetPath": "Views\\Cliente\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\Views\\Pedido\\Index.cshtml",
       "TargetPath": "Views\\Pedido\\Index.cshtml",
       "FileKind": "mvc"
@@ -16365,6 +16375,11 @@
     {
       "FilePath": "d:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\Views\\Cliente\\Alta.cshtml",
+      "TargetPath": "Views\\Cliente\\Alta.cshtml",
       "FileKind": "mvc"
     }
   ],

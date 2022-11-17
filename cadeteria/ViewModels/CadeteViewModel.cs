@@ -34,7 +34,6 @@ namespace VuiwModels
             {
                 while (reader.Read())
                 {
-
                     Cadete aux = new Cadete(reader.GetInt32(0), reader.GetString(1),reader.GetString(2),Convert.ToString(reader.GetInt32(3)));
                     lista.Add(aux);
                 }

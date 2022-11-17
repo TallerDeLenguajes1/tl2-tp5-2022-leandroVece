@@ -10,6 +10,8 @@ namespace VuiwModels
     {
         private string numero ,obs;
         private string estado;
+
+        private int id_cliente;
         
         //siguiendo la teoria de composicion si creo clientes desde la clase pedido este se eliminara cuando elimine el pedido
         ClienteViewModel cliente = new ClienteViewModel();
@@ -19,6 +21,7 @@ namespace VuiwModels
         public string Obs { get => obs; set => obs = value; }
         public ClienteViewModel Cliente { get => cliente; set => cliente = value; }
         public string Estado { get => estado; set => estado = value; }
+        public int Id_cliente { get => id_cliente; set => id_cliente = value; }
 
         public List<Pedido> GetPedido(){
 
@@ -65,16 +68,6 @@ namespace VuiwModels
             connection.Close();
 
         }
-        public void UpdateEstado(Pedido nuevo){
-
-            var connection = Mapper.conexion();
-            connection.Open();
-            var queryString = string.Format("UPDATE pedidos SET  estado = '{0}' WHERE id_pedido = {1};", nuevo.Estado, nuevo.Numero);
-            var comando = new SQLiteCommand(queryString,connection);
-            comando.ExecuteNonQuery();
-            connection.Close();
-
-        } 
         public void Delete(string numero){
             var connection = Mapper.conexion();
             connection.Open();
@@ -84,14 +77,15 @@ namespace VuiwModels
             connection.Close();
 
         } 
-        public void Create(Pedido nuevo){
+        public void Create(Pedido nuevo, int Id_cliente){
+
+            
             var connection = Mapper.conexion();
             connection.Open();
-            var queryString = string.Format("Insert Into pedidos (obj,estado) Values ('{0}','{1}');", nuevo.Obs, nuevo.Estado);
+            var queryString = string.Format("Insert Into pedidos (obj,estado,id_cliente) Values ('{0}','{1}','{2}');", nuevo.Obs, nuevo.Estado,Id_cliente);
             var comando = new SQLiteCommand(queryString,connection);
             comando.ExecuteNonQuery();
             connection.Close();
-
         }
               
     } 

@@ -35,28 +35,21 @@ public class PedidoController : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(string Obs, string nombre,string direccion, string telefono,string referencia)
+    public IActionResult Create(int Id_cliente,string Obs)
     {
         
-        Cliente nuevoC = new Cliente(0,nombre,direccion,telefono,referencia);
         Pedido nuevoP = new Pedido("0",Obs,"pendiente");
-        Console.WriteLine(Obs);
-        Console.WriteLine(nombre);
-        Console.WriteLine(direccion);
-        Console.WriteLine(telefono);
-        //modelPedido.Create(nuevoP);
-        //modelCliente.Create(nuevoC);
-
+        nuevoP.Cliente.Id = Id_cliente;
+        modelPedido.Create(nuevoP,Id_cliente);
         var lista = PAndC.GetPedidoCliente();
         db = _mapper.Map<List<PedidoViewModel>>(lista);
-        return View(db);
+        return RedirectToAction("Index");
     }
 
     public RedirectToActionResult delete(string Numero)
     {
         //borrar el pedido y la tabla clientePedido con el id del pedido
         modelPedido.Delete(Numero);
-        PAndC.deleteClientePedido(Numero);
         return RedirectToAction("Index");
     }
 
@@ -66,17 +59,17 @@ public class PedidoController : Controller
     }
 
     [HttpPost]
-    public IActionResult update(string numero, int id, string obj, string estado, string nombre,string direccion, string telefono,string referencia)
+    public IActionResult update(string numero, string obj, string estado)
     {
-        Cliente nuevoC = new Cliente(id,nombre,direccion,telefono,referencia);
+
         Pedido nuevoP = new Pedido(numero,obj,estado);
         modelPedido.Update(nuevoP);
-        modelCliente.Update(nuevoC);
        return RedirectToAction("Index");
     }
 
-    public IActionResult Alta()
+    public IActionResult Alta(int id)
     {
+        ViewBag.id = id;
         return View();
     }
 
