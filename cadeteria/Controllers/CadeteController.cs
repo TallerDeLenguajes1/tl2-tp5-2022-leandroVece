@@ -10,22 +10,26 @@ namespace cadeteria.Controllers;
 public class CadeteController : Controller
 {
     private readonly ILogger<CadeteController> _logger;
+
+    private readonly ICadeteRepository _cadeteRepository;
     IMapper _mapper;
     CadeteViewModel temp = new CadeteViewModel();
     CadeteriaViewModel db = new CadeteriaViewModel();
 
     VuiwModels.Mapper CyP = new VuiwModels.Mapper();
 
-    public CadeteController(ILogger<CadeteController> logger, IMapper mapper)
+    public CadeteController(ILogger<CadeteController> logger, IMapper mapper, ICadeteRepository cadeteRepository)
     {
         _logger = logger;
         _mapper = mapper;
+        _cadeteRepository = cadeteRepository;
     }
 
     
     public IActionResult Index()
     {
-        var lista = _mapper.Map<List<CadeteViewModel>>(temp.GetCadete());
+        _cadeteRepository.GetCadete();
+        var lista = _mapper.Map<List<CadeteViewModel>>(_cadeteRepository.GetCadete());
         db.ListaCadete = lista;
         return View(db.ListaCadete);
     }
@@ -39,19 +43,24 @@ public class CadeteController : Controller
     [HttpPost]
     public IActionResult Index(string Nombre,string Direccion, string Telefono)
     {
-        
-        temp.Create(new Cadete(0,Nombre,Direccion,Telefono));
-        var lista = _mapper.Map<List<CadeteViewModel>>(temp.GetCadete());
-        db.ListaCadete = lista;
-        return View(db.ListaCadete);
+        if (ModelState.IsValid)
+        {
+            temp.Create(new Cadete(0,Nombre,Direccion,Telefono));
+            var lista = _mapper.Map<List<CadeteViewModel>>(temp.GetCadete());
+            db.ListaCadete = lista;
+            return View(db.ListaCadete);
+        }
+        return View("Index");
     }
     public IActionResult Alta()
     {
+        
         return View();
     }
 
     public IActionResult Edit(int id)
     {
+        
         var cadete = _mapper.Map<CadeteViewModel>(temp.getCadeteById(id));
         return View(cadete);
     }
@@ -61,7 +70,11 @@ public class CadeteController : Controller
     [HttpPost]
     public RedirectToActionResult update(int id,string nombre,string direccion,string telefono )
     {
-        temp.Update(new Cadete(id,nombre,direccion,telefono));
+        if (ModelState.IsValid)
+        {
+            temp.Update(new Cadete(id,nombre,direccion,telefono));
+            return RedirectToAction("Index");
+        }
         return RedirectToAction("Index");
     }
 

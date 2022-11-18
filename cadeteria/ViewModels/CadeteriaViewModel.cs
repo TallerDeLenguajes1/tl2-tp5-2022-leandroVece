@@ -13,7 +13,7 @@ namespace VuiwModels
         [Required] [StringLength(100)] 
         public string Nombre { get => nombre; set => nombre = value; }
 
-        [Required] [StringLength(100)] 
+        [Required] [StringLength(15)] 
         public string Telefono { get => telefono; set => telefono = value; }
          public List<CadeteViewModel> ListaCadete { get => listaCadete; set => listaCadete = value; }
 

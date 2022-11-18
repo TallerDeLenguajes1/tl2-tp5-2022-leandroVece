@@ -8,6 +8,7 @@ namespace VuiwModels
 
     public class CadeteViewModel
     {
+
         private int id;
         private string nombre,direccion, telefono;
         private List<PedidoViewModel> listpedido = new List<PedidoViewModel>();
@@ -78,7 +79,7 @@ namespace VuiwModels
 
         } 
         public void Create(Cadete cadete){
-            Console.WriteLine("llego");
+            
             var connection = Mapper.conexion();
             connection.Open();
             var queryString = string.Format("Insert Into cadetes (nombre,direccion,telefono) Values ('{0}','{1}','{2}');", cadete.Nombre,cadete.Direccion,cadete.Telefono);

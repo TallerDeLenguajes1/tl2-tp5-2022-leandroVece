@@ -36,9 +36,14 @@ public class ClienteController : Controller
     [HttpPost]
     public IActionResult Create(string nombre,string direccion, string telefono,string datosReferencia)
     {
-        Cliente nuevoC = new Cliente(0,nombre,direccion,telefono,datosReferencia);
-        temp.Create(nuevoC);
-        return RedirectToAction("Index");
+        if (ModelState.IsValid)
+        {
+            Cliente nuevoC = new Cliente(0,nombre,direccion,telefono,datosReferencia);
+            temp.Create(nuevoC);
+            return RedirectToAction("Index");
+            
+        }
+            return RedirectToAction("Index");
     }
 
     public RedirectToActionResult delete(int id)
@@ -57,8 +62,13 @@ public class ClienteController : Controller
     [HttpPost]
     public IActionResult update(int id,string nombre,string direccion, string telefono,string referencia)
     {
-        Cliente nuevoC = new Cliente(id,nombre,direccion,telefono,referencia);
-        temp.Update(nuevoC);
+        if (ModelState.IsValid)
+        {
+            Cliente nuevoC = new Cliente(id,nombre,direccion,telefono,referencia);
+            temp.Update(nuevoC);
+            return RedirectToAction("Index");
+            
+        }
        return RedirectToAction("Index");
     }
 

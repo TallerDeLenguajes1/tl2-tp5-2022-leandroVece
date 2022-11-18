@@ -37,13 +37,17 @@ public class PedidoController : Controller
     [HttpPost]
     public IActionResult Create(int Id_cliente,string Obs)
     {
-        
-        Pedido nuevoP = new Pedido("0",Obs,"pendiente");
-        nuevoP.Cliente.Id = Id_cliente;
-        modelPedido.Create(nuevoP,Id_cliente);
-        var lista = PAndC.GetPedidoCliente();
-        db = _mapper.Map<List<PedidoViewModel>>(lista);
-        return RedirectToAction("Index");
+        if (!ModelState.IsValid)
+        {
+            Pedido nuevoP = new Pedido("0",Obs,"pendiente");
+            nuevoP.Cliente.Id = Id_cliente;
+            modelPedido.Create(nuevoP,Id_cliente);
+            var lista = PAndC.GetPedidoCliente();
+            db = _mapper.Map<List<PedidoViewModel>>(lista);
+            return RedirectToAction("Index");
+            
+        }
+            return RedirectToAction("Index");
     }
 
     public RedirectToActionResult delete(string Numero)
@@ -61,10 +65,14 @@ public class PedidoController : Controller
     [HttpPost]
     public IActionResult update(string numero, string obj, string estado)
     {
-
-        Pedido nuevoP = new Pedido(numero,obj,estado);
-        modelPedido.Update(nuevoP);
-       return RedirectToAction("Index");
+        if (ModelState.IsValid)
+        {
+            Pedido nuevoP = new Pedido(numero,obj,estado);
+            modelPedido.Update(nuevoP);
+            return RedirectToAction("Index");
+            
+        }
+            return RedirectToAction("Index");
     }
 
     public IActionResult Alta(int id)
