@@ -17,7 +17,10 @@ agregadas separadamente )*/
 builder.Services.AddLogging(); //Adds el soporte default para logging
 
 //inyeccion de repositorios
-builder.Services.AddTransient<ICadeteRepository, CadeteRepositoy>();
+builder.Services.AddTransient<ICadeteRepository, CadeteRepository>();
+builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
+builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
+
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

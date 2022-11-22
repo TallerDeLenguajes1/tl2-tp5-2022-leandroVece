@@ -6,67 +6,72 @@ using System.Data.SQLite;
 namespace VuiwModels
 {
 
-    class Mapper
+    class Helpers
     {
+
+        private int id_cadete;
         private List<PedidoViewModel> listaPedido;
 
-        private List<CadeteViewModel> listaCadete;
-
-        public Mapper()
+        public Helpers()
         {
             this.listaPedido = new List<PedidoViewModel>();
-            this.listaCadete = new List<CadeteViewModel>();
+            
         }
 
         public List<PedidoViewModel> ListaPedido { get => listaPedido; set => listaPedido = value; }
-        public List<CadeteViewModel> ListaCadete { get => listaCadete; set => listaCadete = value; }
+        public int Id_cadete { get => id_cadete; set => id_cadete = value; }
 
-        public static SQLiteConnection conexion(){
+        public SQLiteConnection conexion(){
             var cadenaConexion = @"Data Source = cadeteria.db;version=3";
             var conection = new SQLiteConnection(cadenaConexion);
             
             return conection;
         }
 
-        public void GetPedidoCadete(){
+        public  List<Pedido> GetPedidoCadete(){
 
             var conection = conexion();
             conection.Open();
 
             var queryString = "Select * from cadetes Inner Join cadetePedido using (id_cadete) inner Join pedidos using (id_pedido);";
             var comando = new SQLiteCommand(queryString,conection);
-            List<string> lista = new List<string>();
-            using (var rader = comando.ExecuteReader())
+            using (var reader = comando.ExecuteReader())
             {
-                while (rader.Read())
+                List<Pedido> lista = new List<Pedido>();
+
+                while (reader.Read())
                 {
-                    //lista.Add(rader.GetString(0));  //AQUI ESTA EL PROBLEMA
-                    Console.WriteLine(rader.GetInt32(0));
-                    
+                    //Console.WriteLine()
+                    Pedido pedidoAux = new Pedido(reader.GetInt32(5).ToString(),reader.GetString(6),reader.GetString(7));    
+                    lista.Add(pedidoAux);
                 }
+
                 conection.Close();
+                return lista;
             }
         }
 
-        public void GetPedidoCadeteById(int id){
+        public List<Pedido> GetPedidoCadeteById(int id){
 
             var conection = conexion();
             conection.Open();
-
             var queryString = "Select * from cadetes Inner Join cadetePedido using (id_cadete) inner Join pedidos using (id_pedido) Where cadetes.Id_cadete =" +id;
             var comando = new SQLiteCommand(queryString,conection);
-            List<string> lista = new List<string>();
-            using (var rader = comando.ExecuteReader())
+            
+            using (var reader = comando.ExecuteReader())
             {
-                while (rader.Read())
+                 List<Pedido> lista = new List<Pedido>();
+
+                while (reader.Read())
                 {
-                    Console.WriteLine("LLEGO");
-                    //lista.Add(rader.GetString(0));  //AQUI ESTA EL PROBLEMA
-                    Console.WriteLine(rader.GetInt32(0));
-                    
+                    Pedido pedidoAux = new Pedido(reader.GetInt32(5).ToString(),reader.GetString(6),reader.GetString(7));    
+                    lista.Add(pedidoAux);
                 }
+
                 conection.Close();
+                return lista;
             }
+            
         }
 
         public List<Pedido> GetPedidoCliente(){
@@ -111,22 +116,24 @@ namespace VuiwModels
             }
         } 
 
-        public void deleteClientePedido(string numero){
-            var connection = Mapper.conexion();
+        public void DeleteCadetePedido(string numero){
+            var connection = conexion();
             connection.Open();
-            var queryString = string.Format("Delete From clientePedido Where id_cadete = {0};", numero);
+            var queryString = string.Format("Delete From cadetePedido Where id_pedido = {0};", numero);
             var comando = new SQLiteCommand(queryString,connection);
             comando.ExecuteNonQuery();
             connection.Close();
-            
+
         }
-        public void CreateClientePedido(int id1,int id2){
-            var connection = Mapper.conexion();
+
+        public void CreateCadetePedido(string numero,int id){
+            var connection = conexion();
             connection.Open();
-            var queryString = string.Format("Insert Into clientePedido (id_cliente,id_pedido) Values ('{0}','{1}',);",id1,id2);
+            var queryString = string.Format("Insert Into cadetePedido (id_cadete,id_pedido) Values ('{0}','{1}')", id,numero);
             var comando = new SQLiteCommand(queryString,connection);
             comando.ExecuteNonQuery();
             connection.Close();
+
         }
 
 

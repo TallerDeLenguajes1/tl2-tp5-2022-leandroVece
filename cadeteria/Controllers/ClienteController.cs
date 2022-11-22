@@ -10,24 +10,24 @@ public class ClienteController : Controller
 {
     private readonly ILogger<ClienteController> _logger;
     IMapper _mapper;
-
-    ClienteViewModel temp = new ClienteViewModel();
+    private readonly IClienteRepository _clienteRepository;
     List<ClienteViewModel> db = new List<ClienteViewModel>();
 
 
-    VuiwModels.Mapper PAndC = new VuiwModels.Mapper();
+    VuiwModels.Helpers PAndC = new VuiwModels.Helpers();
 
-    public ClienteController(ILogger<ClienteController> logger, IMapper mapper)
+    public ClienteController(ILogger<ClienteController> logger, IMapper mapper,IClienteRepository clienteRepository )
     {
         _logger = logger;
         _mapper = mapper;
+        _clienteRepository = _clienteRepository;
     }
 
     
     public IActionResult Index()
     {
 
-        var lista = temp.GetCliente();
+        var lista = _clienteRepository.GetCliente();
         db = _mapper.Map<List<ClienteViewModel>>(lista);
 
         return View(db);
@@ -39,7 +39,7 @@ public class ClienteController : Controller
         if (ModelState.IsValid)
         {
             Cliente nuevoC = new Cliente(0,nombre,direccion,telefono,datosReferencia);
-            temp.Create(nuevoC);
+            _clienteRepository.Create(nuevoC);
             return RedirectToAction("Index");
             
         }
@@ -49,13 +49,13 @@ public class ClienteController : Controller
     public RedirectToActionResult delete(int id)
     {
         //borrar el pedido y la tabla clientePedido con el id del pedido
-        temp.Delete(id);
+        _clienteRepository.Delete(id);
         return RedirectToAction("Index");
     }
 
     public IActionResult Edit(int id)
     {
-        var cliente = _mapper.Map<ClienteViewModel>(temp.GetClienteById(id));
+        var cliente = _mapper.Map<ClienteViewModel>(_clienteRepository.GetClienteById(id));
         return View(cliente);
     }
 
@@ -65,7 +65,7 @@ public class ClienteController : Controller
         if (ModelState.IsValid)
         {
             Cliente nuevoC = new Cliente(id,nombre,direccion,telefono,referencia);
-            temp.Update(nuevoC);
+            _clienteRepository.Update(nuevoC);
             return RedirectToAction("Index");
             
         }

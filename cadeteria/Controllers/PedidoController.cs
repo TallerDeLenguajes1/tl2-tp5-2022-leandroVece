@@ -10,25 +10,24 @@ public class PedidoController : Controller
 {
     private readonly ILogger<PedidoController> _logger;
     IMapper _mapper;
-    PedidoViewModel modelPedido = new PedidoViewModel();
+    private readonly IPedidoRepository _pedidoRepository;
 
-    ClienteViewModel modelCliente = new ClienteViewModel();
     List<PedidoViewModel> db = new List<PedidoViewModel>();
 
+    VuiwModels.Helpers helpers = new VuiwModels.Helpers();
 
-    VuiwModels.Mapper PAndC = new VuiwModels.Mapper();
-
-    public PedidoController(ILogger<PedidoController> logger, IMapper mapper)
+    public PedidoController(ILogger<PedidoController> logger, IMapper mapper, IPedidoRepository pedidoRepository)
     {
         _logger = logger;
         _mapper = mapper;
+        _pedidoRepository = pedidoRepository;
     }
 
     
     public IActionResult Index()
     {
 
-        var lista = PAndC.GetPedidoCliente();
+        var lista = helpers.GetPedidoCliente();
         db = _mapper.Map<List<PedidoViewModel>>(lista);
 
         return View(db);
@@ -40,9 +39,8 @@ public class PedidoController : Controller
         if (!ModelState.IsValid)
         {
             Pedido nuevoP = new Pedido("0",Obs,"pendiente");
-            nuevoP.Cliente.Id = Id_cliente;
-            modelPedido.Create(nuevoP,Id_cliente);
-            var lista = PAndC.GetPedidoCliente();
+            _pedidoRepository.Create(nuevoP,Id_cliente);
+            var lista = helpers.GetPedidoCliente();
             db = _mapper.Map<List<PedidoViewModel>>(lista);
             return RedirectToAction("Index");
             
@@ -53,28 +51,55 @@ public class PedidoController : Controller
     public RedirectToActionResult delete(string Numero)
     {
         //borrar el pedido y la tabla clientePedido con el id del pedido
-        modelPedido.Delete(Numero);
+        _pedidoRepository.Delete(Numero);
         return RedirectToAction("Index");
     }
 
-    public IActionResult Edit()
+    public IActionResult Edit(string numero)
     {
-        return View();
+        var pedido = _mapper.Map<PedidoViewModel>(_pedidoRepository.GetPedidoById(numero));
+        return View(pedido);
     }
 
     [HttpPost]
-    public IActionResult update(string numero, string obj, string estado)
+    public IActionResult update(string Numero, string Obs, string Estado)
     {
         if (ModelState.IsValid)
         {
-            Pedido nuevoP = new Pedido(numero,obj,estado);
-            modelPedido.Update(nuevoP);
+            Console.WriteLine(Numero);
+            Pedido nuevoP = new Pedido(Numero,Obs,Estado);
+            _pedidoRepository.Update(nuevoP);
             return RedirectToAction("Index");
             
         }
             return RedirectToAction("Index");
     }
 
+    public IActionResult Entregar(string Numero,string Obs ){
+        var Actualizar = new Pedido(Numero,Obs,"Entregado");
+        _pedidoRepository.Update(Actualizar);
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Eliminar(string Numero,string Obs ){
+        var Actualizar = new Pedido(Numero,Obs,"pendiente");
+        _pedidoRepository.Update(Actualizar);
+        helpers.DeleteCadetePedido(Numero);
+        return RedirectToAction("Index");
+    }
+
+
+    public IActionResult AsignarPedido(int id){
+        helpers.Id_cadete = id;
+        var lista = helpers.GetPedidoCliente();
+        helpers.ListaPedido = _mapper.Map<List<PedidoViewModel>>(lista);
+        return View(helpers);
+    }
+     public IActionResult TomarPedido(string Numero, int Id){
+        helpers.CreateCadetePedido(Numero,Id);
+        return RedirectToAction("Index");
+    }
+    
     public IActionResult Alta(int id)
     {
         ViewBag.id = id;

@@ -1,0 +1,45 @@
+﻿@model VuiwModels.Helpers;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <h3>Elegir Pedido</h3>
+
+        <table class="table table-dark">
+
+    <thead >
+        <th>Numero Pedido</th>
+        <th>Pedido</th>
+        <th>Estado</th>
+        <th>cliente</th>
+        <th>Accion</th>
+        
+    </thead>
+    @foreach (var item in Model.ListaPedido)
+    {
+        if (item.Estado == "pendiente")
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Obs </td>
+                <td>@item.Estado</td>
+                <td>@item.Cliente.Nombre</td>
+                <td class="primary mb-3"> @Html.ActionLink("Tomar", "TomarPedido", new { Numero=item.Numero,Id = Model.Id_cadete}) </td>
+                
+            </tr>
+            
+        }
+    }
+
+    </table>
+        
+
+    
+
+   
+
+    
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

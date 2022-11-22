@@ -1,0 +1,30 @@
+﻿@model List<VuiwModels.PedidoViewModel>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <table class="table table-dark">
+        <thead >
+            <th>Numero Pedido</th>
+            <th>Pedido</th>
+            <th>estado</th>
+            <th>Accion</th>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Obs </td>
+                <td>@item.Estado</td>
+                <td class="primary mb-3"> @Html.ActionLink("Entregar", "entregar","Pedido", new { numero = item.Numero,Obs = item.Obs }) / 
+                 @Html.ActionLink("Eliminar", "eliminar","Pedido", new { Numero = item.Numero, Obs = item.Obs}) </td>
+            </tr>
+        }
+        
+    </table>
+
+    
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

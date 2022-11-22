@@ -15,6 +15,7 @@ public class Cadete : Persona
             this.Direccion = adress;
             this.Telefono = phone;
         }
+        public Cadete(){}
 
 
 

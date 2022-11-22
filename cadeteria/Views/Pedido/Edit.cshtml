@@ -13,22 +13,18 @@
                     <input hidden asp-for="Numero" class="form-control" />
             </div>
             <div class="form-group">
-                    <div class="form-group">
-                    <input hidden asp-for="Cliente.Id" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Obs" value="Obs" class="control-label"> Nombre</label>
+                <label asp-for="Obs" value="Obs" class="control-label"> Obs</label>
                 <input asp-for="Obs" class="form-control" > 
                 <span asp-validation-for="Obs" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Estado" value="Estado" class="control-label"> Nombre</label>
+                <label asp-for="Estado" value="Estado" class="control-label"> Estado</label>
                 <input asp-for="Estado" readonly class="form-control" > 
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
-            <div class="col-auto">
+            <div class="mt-2">
                 <button type="submit" class="btn btn-primary mb-3">Enviar</button>
-            </div>          
+            </div>         
     </form>
 
 @section Scripts {

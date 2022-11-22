@@ -11,6 +11,7 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     
     IMapper _mapper;
+    CadeteriaViewModel db = new CadeteriaViewModel();
 
     public HomeController(ILogger<HomeController> logger, IMapper Mapper)
     {
@@ -22,7 +23,7 @@ public class HomeController : Controller
     
     public IActionResult Index()
     {
-
+        
         return View();
     }
 

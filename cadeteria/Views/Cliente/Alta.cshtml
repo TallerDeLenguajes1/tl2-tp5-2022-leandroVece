@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <h3>Actualizar datos del pedido</h3>
+    <h3>Nuevo Cliente</h3>
 
     <form  method="post" class=" w-50 mx-auto" asp-controller="Cliente" asp-action="Create" >
 
@@ -30,9 +30,10 @@
                 <span asp-validation-for="DatosReferencia" class="text-danger"></span>
             </div>
 
-            <div class="col-auto">
+            <div class="mt-2">
                 <button type="submit" class="btn btn-primary mb-3">Enviar</button>
-            </div>          
+            </div>
+         
     </form>
 
 @section Scripts {

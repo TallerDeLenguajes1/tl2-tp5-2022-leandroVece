@@ -13,8 +13,7 @@ public class Cadeteria
 
         List<Cadete> listaCadete = new List<Cadete>(); 
 
-        public Cadeteria(string name, string phone){
-            this.Nombre = name;
-            this.Telefono = phone; 
+        public Cadeteria(){
+             
         }
 }

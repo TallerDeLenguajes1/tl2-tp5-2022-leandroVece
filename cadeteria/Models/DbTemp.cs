@@ -11,7 +11,7 @@ public class DbModel
 
          public DbModel(){
                 ListaPedido = new List<Pedido>();
-                Cadeteria = new Cadeteria("Eternos","6542112");
+                Cadeteria = new Cadeteria();
         }
         /*
 

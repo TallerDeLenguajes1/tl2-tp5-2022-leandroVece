@@ -7,6 +7,8 @@ using VuiwModels;
         public perfilDeMapeo()
         {
             CreateMap<Cadete, CadeteViewModel>().ReverseMap();
+            CreateMap<Cadete,CadeteUpdateViewModel>().ReverseMap();
+
             CreateMap<Pedido,PedidoViewModel>().ReverseMap();
             CreateMap<Cliente,ClienteViewModel>().ReverseMap();
         }

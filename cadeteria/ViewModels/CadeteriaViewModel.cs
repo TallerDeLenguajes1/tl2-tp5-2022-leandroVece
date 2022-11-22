@@ -7,19 +7,9 @@ namespace VuiwModels
 
     class CadeteriaViewModel
     {
-        private string nombre;
-        private string telefono;
+        List<PedidoViewModel> listaPedido = new List<PedidoViewModel>();
 
-        [Required] [StringLength(100)] 
-        public string Nombre { get => nombre; set => nombre = value; }
-
-        [Required] [StringLength(15)] 
-        public string Telefono { get => telefono; set => telefono = value; }
-         public List<CadeteViewModel> ListaCadete { get => listaCadete; set => listaCadete = value; }
-
-        List<CadeteViewModel> listaCadete = new List<CadeteViewModel>(); 
+        List<CadeteUpdateViewModel> listaCadete = new List<CadeteUpdateViewModel>(); 
     }
-
-    
     
 }

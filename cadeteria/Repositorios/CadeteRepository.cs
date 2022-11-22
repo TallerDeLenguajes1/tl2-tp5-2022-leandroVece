@@ -5,19 +5,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace cadeteria;
 
-public class CadeteRepositoy : ICadeteRepository
+public class CadeteRepository : ICadeteRepository
 {
-    private readonly ICadeteRepository _cadeteRepository;
-    public CadeteRepositoy(ICadeteRepository cadeteRepository)
+    public CadeteRepository()
     { 
-        _cadeteRepository = cadeteRepository;
+        
     }
 
     public  SQLiteConnection Conexion(){
             var cadenaConexion = @"Data Source = cadeteria.db;version=3";
-            var conection = new SQLiteConnection(cadenaConexion);
-            
-            return conection;
+            return new SQLiteConnection(cadenaConexion);
     }
     public List<Cadete> GetCadete(){
 

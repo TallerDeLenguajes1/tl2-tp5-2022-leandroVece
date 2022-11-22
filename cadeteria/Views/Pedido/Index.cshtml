@@ -3,7 +3,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <h1>Lista con los Pedido Pendientes</h1>
+<div class="container-fluid">
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1 m-2">
+            <li class="nav-item">
+                  <a class="nav-link btn btn-link" asp-area="" asp-controller="Pedido" asp-action="Alta">Alta Pedido</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <h1>Lista con los Pedido</h1>
 
     <table class="table table-dark">
 
