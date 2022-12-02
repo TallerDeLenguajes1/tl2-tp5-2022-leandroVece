@@ -1,0 +1,45 @@
+﻿@model VuiwModels.UserUpdateViewModel;
+@{
+ 
+    ViewData["Title"] = "Log in Page";
+}
+
+
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <h3 class="mb-5">Cambiar datos del usuario</h3>
+
+                        <form asp-action="Update" method="post">
+
+                            <input hidden asp-for="Id" type="text" class="form-control form-control-lg">
+                            <div class="form-outline mb-4">
+                                <label asp-for="Nombre" class="form-label"></label>
+                                <input asp-for="Nombre" type="text" class="form-control form-control-lg">
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label asp-for="Password" class="form-label"></label>
+                                <input asp-for="Password" type="password" class="form-control form-control-lg">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label asp-for="PasswordRetry" class="form-label"></label>
+                                <input asp-for="PasswordRetry" type="password" class="form-control form-control-lg">
+                                <span asp-validation-for="PasswordRetry" class="text-danger"></span>
+                            </div>
+
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

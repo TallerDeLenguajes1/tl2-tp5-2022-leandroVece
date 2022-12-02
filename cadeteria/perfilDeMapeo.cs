@@ -6,6 +6,10 @@ using VuiwModels;
     {
         public perfilDeMapeo()
         {
+            CreateMap<Usuario, UserViewModel>().ReverseMap();
+            CreateMap<Usuario, UserLoginViewModel>().ReverseMap();
+            CreateMap<Usuario, UserUpdateViewModel>().ReverseMap();
+
             CreateMap<Cadete, CadeteViewModel>().ReverseMap();
             CreateMap<Cadete,CadeteUpdateViewModel>().ReverseMap();
 

@@ -6,7 +6,7 @@ using System.Data.SQLite;
 namespace VuiwModels
 {
 
-    class ClienteViewModel
+    public class ClienteViewModel
     {
         private int id;
         private string nombre,direccion, telefono;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rAQSKOW3LhLMyyL6srqcaqrCA/iiWcWvUbGkRDkBmYA=",
+  "Hash": "VVSKiQ9vxO1x+b+/nclAjRWq44DzzdXPRkIwHt8EdLE=",
   "Source": "cadeteria",
   "BasePath": "_content/cadeteria",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\cadeteria.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\wwwroot\\css\\card.css",
+      "SourceId": "cadeteria",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\wwwroot\\",
+      "BasePath": "_content/cadeteria",
+      "RelativePath": "css/card.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\card.css"
     },
     {
       "Identity": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\wwwroot\\css\\site.css",

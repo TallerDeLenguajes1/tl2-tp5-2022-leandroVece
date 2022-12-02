@@ -57,7 +57,7 @@ public class ClienteRepository : IClienteRepository
 
             var connection = Conexion();
             connection.Open();
-            var queryString = string.Format("UPDATE clientes SET nombre = '{0}', direccion = '{1}', telefono = '{2}', referencia ='{3}' WHERE id_cliente = {4};", cliente.Nombre,cliente.Direccion,cliente.Telefono,cliente.DatosReferencia, cliente.Id);
+            var queryString = string.Format("UPDATE clientes SET nombre = '{0}', direccion = '{1}', telefono = '{2}', referencia = '{3}' WHERE id_cliente = {4};", cliente.Nombre,cliente.Direccion,cliente.Telefono,cliente.DatosReferencia, cliente.Id);
             var comando = new SQLiteCommand(queryString,connection);
             comando.ExecuteNonQuery();
             connection.Close();

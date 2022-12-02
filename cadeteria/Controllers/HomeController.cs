@@ -3,15 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 using cadeteria.Models;
 using VuiwModels;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 namespace cadeteria.Controllers;
 
-public class HomeController : Controller
+public class HomeController : SessionController
 {
     private readonly ILogger<HomeController> _logger;
-    
+
     IMapper _mapper;
-    CadeteriaViewModel db = new CadeteriaViewModel();
+    private readonly DataContext _db;
 
     public HomeController(ILogger<HomeController> logger, IMapper Mapper)
     {
@@ -20,10 +21,11 @@ public class HomeController : Controller
 
     }
 
-    
+
     public IActionResult Index()
     {
-        
+        if (!IsSesionIniciada())
+            return RedirectToAction("Login", "User");
         return View();
     }
 

@@ -6,70 +6,71 @@ using AutoMapper;
 
 namespace cadeteria.Controllers;
 
-public class ClienteController : Controller
+public class ClienteController : SessionController
 {
     private readonly ILogger<ClienteController> _logger;
     IMapper _mapper;
-    private readonly IClienteRepository _clienteRepository;
+    private readonly DataContext _db;
     List<ClienteViewModel> db = new List<ClienteViewModel>();
 
 
     VuiwModels.Helpers PAndC = new VuiwModels.Helpers();
 
-    public ClienteController(ILogger<ClienteController> logger, IMapper mapper,IClienteRepository clienteRepository )
+    public ClienteController(ILogger<ClienteController> logger, IMapper mapper, DataContext db)
     {
         _logger = logger;
         _mapper = mapper;
-        _clienteRepository = _clienteRepository;
+        _db = db;
+
     }
 
-    
+
     public IActionResult Index()
     {
 
-        var lista = _clienteRepository.GetCliente();
+        var lista = _db.Cliente.GetCliente();
         db = _mapper.Map<List<ClienteViewModel>>(lista);
 
         return View(db);
     }
 
     [HttpPost]
-    public IActionResult Create(string nombre,string direccion, string telefono,string datosReferencia)
+    public IActionResult Create(string nombre, string direccion, string telefono, string datosReferencia)
     {
         if (ModelState.IsValid)
         {
-            Cliente nuevoC = new Cliente(0,nombre,direccion,telefono,datosReferencia);
-            _clienteRepository.Create(nuevoC);
+            Cliente nuevoC = new Cliente(0, nombre, direccion, telefono, datosReferencia);
+            _db.Cliente.Create(nuevoC);
             return RedirectToAction("Index");
-            
+
         }
-            return RedirectToAction("Index");
+        return RedirectToAction("Index");
     }
 
     public RedirectToActionResult delete(int id)
     {
         //borrar el pedido y la tabla clientePedido con el id del pedido
-        _clienteRepository.Delete(id);
+        _db.Cliente.Delete(id);
         return RedirectToAction("Index");
     }
 
     public IActionResult Edit(int id)
     {
-        var cliente = _mapper.Map<ClienteViewModel>(_clienteRepository.GetClienteById(id));
+        var cliente = _mapper.Map<ClienteViewModel>(_db.Cliente.GetClienteById(id));
         return View(cliente);
     }
 
     [HttpPost]
-    public IActionResult update(int id,string nombre,string direccion, string telefono,string referencia)
+    public IActionResult update(ClienteViewModel cliente)
     {
         if (ModelState.IsValid)
         {
-            Cliente nuevoC = new Cliente(id,nombre,direccion,telefono,referencia);
-            _clienteRepository.Update(nuevoC);
+            var nuevoC = _mapper.Map<Cliente>(cliente);
+            _db.Cliente.Update(nuevoC);
             return RedirectToAction("Index");
-            
+
         }
-       return RedirectToAction("Index");
+        return RedirectToAction("Index");
     }
 
     public IActionResult Alta()

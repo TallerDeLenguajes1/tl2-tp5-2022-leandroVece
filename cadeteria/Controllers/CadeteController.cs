@@ -11,30 +11,31 @@ public class CadeteController : Controller
 {
     private readonly ILogger<CadeteController> _logger;
 
-    private readonly ICadeteRepository _cadeteRepository;
+    private readonly DataContext _db;
     IMapper _mapper;
 
     VuiwModels.Helpers helpers = new VuiwModels.Helpers();
 
 
-    public CadeteController(ILogger<CadeteController> logger, IMapper mapper, ICadeteRepository cadeteRepository)
+    public CadeteController(ILogger<CadeteController> logger, IMapper mapper, DataContext db)
     {
         _logger = logger;
         _mapper = mapper;
-        _cadeteRepository = cadeteRepository;
+        _db = db;
+
     }
 
-    
+
     public IActionResult Index()
     {
-        _cadeteRepository.GetCadete();
-        var lista = _mapper.Map<List<CadeteUpdateViewModel>>(_cadeteRepository.GetCadete());
+        _db.Cadete.GetCadete();
+        var lista = _mapper.Map<List<CadeteUpdateViewModel>>(_db.Cadete.GetCadete());
         return View(lista);
     }
 
     public RedirectToActionResult delete(int Id)
     {
-        _cadeteRepository.Delete(Id);
+        _db.Cadete.Delete(Id);
         return RedirectToAction("Index");
     }
 
@@ -44,34 +45,35 @@ public class CadeteController : Controller
         if (ModelState.IsValid)
         {
             var cadete = _mapper.Map<Cadete>(nuevo);
-            _cadeteRepository.Create(cadete);
-            var lista = _mapper.Map<List<CadeteViewModel>>(_cadeteRepository.GetCadete());
+            _db.Cadete.Create(cadete);
+            var lista = _mapper.Map<List<CadeteViewModel>>(_db.Cadete.GetCadete());
             return RedirectToAction("Index");
         }
         return RedirectToAction("Alta");
     }
     public IActionResult Alta()
     {
-        
+
         return View();
     }
 
     public IActionResult Edit(int id)
     {
-        
-        var cadete = _mapper.Map<CadeteUpdateViewModel>(_cadeteRepository.GetCadeteById(id));
+
+        var cadete = _mapper.Map<CadeteUpdateViewModel>(_db.Cadete.GetCadeteById(id));
         return View(cadete);
     }
 
-    public IActionResult VerPedidos(int id){
+    public IActionResult VerPedidos(int id)
+    {
 
         helpers.ListaPedido = _mapper.Map<List<PedidoViewModel>>(helpers.GetPedidoCadeteById(id));
         return View(helpers.ListaPedido);
     }
 
-    
 
-    
+
+
 
     [HttpPost]
     public RedirectToActionResult update(CadeteUpdateViewModel datosActualizado)
@@ -79,7 +81,7 @@ public class CadeteController : Controller
         if (ModelState.IsValid)
         {
             var cadete = _mapper.Map<Cadete>(datosActualizado);
-            _cadeteRepository.Update(cadete);
+            _db.Cadete.Update(cadete);
             return RedirectToAction("Index");
         }
         return RedirectToAction("Index");
