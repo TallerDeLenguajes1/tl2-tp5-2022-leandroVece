@@ -1,21 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj": {}
+    "D:\\leo\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj": {}
   },
   "projects": {
-    "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj": {
+    "D:\\leo\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj",
+        "projectUniqueName": "D:\\leo\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj",
         "projectName": "cadeteria",
-        "projectPath": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj",
-        "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
-        "outputPath": "D:\\taller2\\2022\\tl2-tp5-2022-leandroVece\\cadeteria\\obj\\",
+        "projectPath": "D:\\leo\\tl2-tp5-2022-leandroVece\\cadeteria\\cadeteria.csproj",
+        "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
+        "outputPath": "D:\\leo\\tl2-tp5-2022-leandroVece\\cadeteria\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Leo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -63,8 +70,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -76,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

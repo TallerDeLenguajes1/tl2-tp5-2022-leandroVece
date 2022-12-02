@@ -9,15 +9,16 @@ namespace cadeteria.Controllers;
 public class UserController : SessionController
 {
     private readonly ILogger<UserController> _logger;
-    private readonly DataContext _db;
+    private readonly IDataContext _db;
 
     IMapper _mapper;
-    CadeteriaViewModel db = new CadeteriaViewModel();
+    //CadeteriaViewModel db = new CadeteriaViewModel();
 
-    public UserController(ILogger<UserController> logger, IMapper Mapper)
+    public UserController(ILogger<UserController> logger, IMapper Mapper, IDataContext db)
     {
         _logger = logger;
         _mapper = Mapper;
+        _db = db;
 
     }
     public IActionResult Login(UserLoginViewModel user = null)

@@ -8,89 +8,89 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = cadeteria
 build_property.RootNamespace = cadeteria
-build_property.ProjectDir = d:\taller2\2022\tl2-tp5-2022-leandroVece\cadeteria\
+build_property.ProjectDir = D:\leo\tl2-tp5-2022-leandroVece\cadeteria\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\taller2\2022\tl2-tp5-2022-leandroVece\cadeteria
+build_property.MSBuildProjectDirectory = D:\leo\tl2-tp5-2022-leandroVece\cadeteria
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Alta.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Alta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEFsdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Edit.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Index.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/VerPedidos.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cadete/VerPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkZXRlXFZlclBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cliente/Alta.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cliente/Alta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxBbHRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cliente/Edit.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cliente/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Cliente/Index.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Home/Index.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Alta.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Alta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEFsdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/AsignarPedido.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/AsignarPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEFzaWduYXJQZWRpZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Edit.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Index.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Pedido/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Shared/Error.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/User/Alta.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/User/Alta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBbHRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/User/Edit.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/User/Login.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/_ViewImports.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/_ViewStart.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/taller2/2022/tl2-tp5-2022-leandroVece/cadeteria/Views/Shared/_Layout.cshtml]
+[D:/leo/tl2-tp5-2022-leandroVece/cadeteria/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-jr770b4q1k

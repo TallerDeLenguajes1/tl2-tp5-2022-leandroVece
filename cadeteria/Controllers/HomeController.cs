@@ -12,12 +12,13 @@ public class HomeController : SessionController
     private readonly ILogger<HomeController> _logger;
 
     IMapper _mapper;
-    private readonly DataContext _db;
+    private readonly IDataContext _db;
 
-    public HomeController(ILogger<HomeController> logger, IMapper Mapper)
+    public HomeController(ILogger<HomeController> logger, IMapper Mapper, IDataContext db)
     {
         _logger = logger;
         _mapper = Mapper;
+        _db = db;
 
     }
 

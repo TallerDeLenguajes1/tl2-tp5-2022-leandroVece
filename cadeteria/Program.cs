@@ -23,6 +23,11 @@ builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
+builder.Services.AddTransient<IDataContext,DataContext>();
+
+
+
+
 //session
 builder.Services.AddDistributedMemoryCache();
 
